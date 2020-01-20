@@ -7,7 +7,8 @@ function AddNotes({ navigation }) {
   const [noteValue, setNoteValue] = useState("");
 
   function onNoteSave() {
-    navigation.state.params.addNote({ noteTitle, noteValue });
+    navigation.state.params.addNote({ noteTitle, noteValue })
+    navigation.goBack()
   }
   return (
     <>
@@ -17,6 +18,7 @@ function AddNotes({ navigation }) {
         size={35}
         color="white"
         onPress={() => navigation.goBack()}
+        style={styles.iconButton}
       />
       <View style={styles.container}>
         <TextInput
@@ -29,7 +31,6 @@ function AddNotes({ navigation }) {
         <TextInput
           label="Add note here"
           value={noteValue}
-          mode="flat"
           onChangeText={setNoteValue}
           style={styles.text}
           multiline={true}
@@ -59,7 +60,9 @@ const styles = StyleSheet.create({
   iconButton: {
     backgroundColor: "rgba(46, 113, 102, 0.8)",
     position: "absolute",
-    right: 0,
+    height: 100,
+    width: 100,
+    left: 0,
     top: 40,
     margin: 10
   },
@@ -69,7 +72,11 @@ const styles = StyleSheet.create({
   },
   text: {
     height: 300,
-    fontSize: 16
+    fontSize: 16,
+    backgroundColor: "#fff",
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "#d6d7da"
   },
   fab: {
     position: "absolute",

@@ -3,7 +3,7 @@ import { StyleSheet, View, FlatList } from "react-native";
 import { Text, FAB, List } from "react-native-paper";
 import { Header } from "../components/Header";
 
-function ViewNotes() {
+function ViewNotes({ navigation }) {
   const [notes, setNotes] = useState([]);
 
   const addNote = note => {
@@ -38,7 +38,7 @@ function ViewNotes() {
           icon="plus"
           label="Add new note"
           onPress={() =>
-            navigation.navigate("AddNote", {
+            navigation.navigate("AddNotes", {
               addNote
             })
           }
