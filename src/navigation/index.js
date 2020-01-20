@@ -6,11 +6,15 @@ const StackNavigator = createStackNavigator(
   {
     ViewNotes: {
       screen: ViewNotes
+    },
+    AddNotes: {
+      screen: AddNotes
     }
   },
   {
     initialRouteName: "ViewNotes",
-    headerMode: "none"
+    headerMode: "none",
+    mode: "modal"
   }
 );
 

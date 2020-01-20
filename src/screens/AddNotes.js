@@ -1,8 +1,14 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { IconButton, TextInput, FAB } from "react-native-paper";
 
-function AddNotes() {
+function AddNotes({ navigation }) {
+  const [noteTitle, setNoteTitle] = useState("");
+  const [noteValue, setNoteValue] = useState("");
+
+  function onNoteSave() {
+    navigation.state.params.addNote({ noteTitle, noteValue });
+  }
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -28,3 +34,5 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
+export default AddNotes;
